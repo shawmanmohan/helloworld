@@ -1,8 +1,11 @@
 pipeline {
+    environment {
+        MAVEN_HOME = tool name: 'maven', type: 'maven'
+    }
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+                sh '${MAVEN_HOME}/mvn --version'
             }
         }
     }
